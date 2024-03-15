@@ -10,7 +10,7 @@ import Hamburger from './Hamburger';
 
 
 const Header = () => {
-    const [toggle, setToggle] = useState(true)
+    const [toggle, setToggle] = useState(false)
 
     const { theme, darkTheme, lightTheme } = useStore()
 
