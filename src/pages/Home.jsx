@@ -1,7 +1,17 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import GenresList from '../components/GenresList'
+import { allGamesList } from '../services/GlobalApi'
 
 const Home = () => {
+
+  useEffect(()=>{
+    fecthAllGames()
+  },[])
+
+  const fecthAllGames = async() =>{
+    const GamesList =await allGamesList()
+    console.log(GamesList.results)
+  }
 
   return (
     <div className='grid grid-cols-4'>

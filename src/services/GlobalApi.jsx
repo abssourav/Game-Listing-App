@@ -14,6 +14,16 @@ const fetchGenresList = async() =>{
     }
 
 }
+const allGamesList = async() =>{
+    try {
+        const res = await axiosInstanceCreate.get('/games?key='+ import.meta.env.VITE_RWAG_KEY)
+        return res.data
+    } catch (error) {
+        console.log("Fecthing allGamesList Failed", error)
+        throw error
+    }
+
+}
 
 
-export {fetchGenresList}
+export {fetchGenresList,allGamesList}
