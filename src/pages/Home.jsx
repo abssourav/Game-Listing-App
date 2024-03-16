@@ -1,21 +1,18 @@
 import { useEffect, useState } from 'react'
 import GenresList from '../components/GenresList'
-import { allGamesList } from '../services/GlobalApi'
 import Banner from '../components/Banner'
+import useStore from '../app/store'
+import TrendingGames from '../components/TrendingGames'
 
 const Home = () => {
 
-  const [allGameList,setAllGameList] = useState([])
+  const {allGameList,fecthAllGames} =useStore()
 
   useEffect(()=>{
     fecthAllGames()
   },[])
 
-  const fecthAllGames = async() =>{
-    const GamesList =await allGamesList()
-    console.log(GamesList.results)
-    setAllGameList(GamesList.results)
-  }
+  
 
   return (
     <div className='grid grid-cols-4'>
@@ -23,7 +20,13 @@ const Home = () => {
         <GenresList />
       </div>
       <div className='col-span-4 md:col-span-3'>
-        {allGameList.length === 0 ? <div className='text-black dark:text-white font-bold'>Loading...</div> : <Banner gameForBanner={allGameList[3]}/>}
+        {allGameList.length === 0 ? 
+        <div className='text-black dark:text-white font-bold'>Loading...</div> 
+        : 
+        <div className=' m-4'>
+          <Banner gameForBanner={allGameList[3]} />
+          <TrendingGames allGameList={allGameList}/>
+        </div>}
       </div>
     </div>
   )

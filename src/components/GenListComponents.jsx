@@ -10,6 +10,7 @@ const GenListComponents = () => {
         const data = await fetchGenresList()
         const genreList = data.results
         setGenList(genreList)
+        console.log(genreList)
     }
 
     useEffect(() => {

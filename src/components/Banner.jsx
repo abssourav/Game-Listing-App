@@ -2,7 +2,7 @@ import React from 'react'
 
 const Banner = ({gameForBanner}) => {
   return (
-    <div className='relative m-4'>
+    <div className='relative cursor-pointer'>
         <div className='absolute bottom-0 text-white p-8 bg-gradient-to-t from-slate-700 to-100% w-full rounded-2xl'>
             <p className='font-bold'>
                 {gameForBanner?.name}
