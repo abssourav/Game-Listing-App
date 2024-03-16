@@ -6,3 +6,4 @@
 - Axios (For data fecthing)
 - Tailwindcss (include dark and light mode)
 - React icons
+- rawg api
